@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require dropzone/dropzone
+ */
+
+
+
+.admin-load-from-file{
+    position: absolute;
+    right: 10px;
+    margin: 20px;
+    font-size: 20px;
+}
+.admin-load-from-file{
+    z-index: 100;
+}
+
+.admin-wrapper h2:first-child{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.admin-wrapper .jumbotron h3{
+    margin-top: 10px;
+}
+
+.affix {
+    top: 20px;
+}
+
+.admin-wrapper{
+	font-size: 16px;
+}
+
+.admin-container{
+	word-wrap: break-word;
+}
+
+#admin-terminal{
+    padding: 11px;
+    padding-top: 0;
+    color: #ff721a;
+    top: 4px;
+
+    position: relative;
+    display: inline-block;
+}
+
+@-webkit-keyframes blink {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blink {
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}

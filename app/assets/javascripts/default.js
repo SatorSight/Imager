@@ -1,38 +1,21 @@
 Dropzone.autoDiscover = false;
 document.addEventListener("turbolinks:load", function() {
 
-	    let md = new Dropzone("#my-dropzone", {
-			paramName: 'image[image_file]'
-	    });
+    let md = new Dropzone("#my-dropzone", {
+		paramName: 'image[image_file]',
+		timeout: 99999999
+    });
 
-	    md.on("complete", function (file) {
-	        if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) 
-				document.location.href="/";
-	    });
-
-	// });
+    md.on("complete", function (file) {
+        if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) 
+			document.location.href="/";
+    });
 
 	function copyTextToClipboard(text) {
-	  // let textArea = document.createElement("textarea");
-
-	  // textArea.id = 'bar';
-	  // textArea.style.top = 0;
-	  // textArea.style.left = 0;
-	  // textArea.style.width = '2em';
-	  // textArea.style.height = '2em';
-	  // textArea.style.padding = 0;
-	  // textArea.style.border = 'none';
-	  // textArea.style.outline = 'none';
-	  // textArea.style.boxShadow = 'none';
-	  // textArea.style.background = 'transparent';
-	  // textArea.value = text;
-	  // document.body.appendChild(textArea);
-
 	  let textarea = $('#bar');
 	  textarea.val(text);
 
 	  var clipboard = new Clipboard('.copy-url');
-	  // document.body.removeChild(textArea);
 	}
 
 	$( document ).ready(function() {
@@ -65,6 +48,4 @@ document.addEventListener("turbolinks:load", function() {
 	    	copyTextToClipboard(url);
 		});
 	});
-
-
 });

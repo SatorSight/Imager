@@ -69,3 +69,16 @@
     50% { opacity: 0.0; }
     100% { opacity: 1.0; }
 }
+
+#bar{
+	top: 0;
+	width: 2em;
+	height: 2em;
+	padding: 0;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	background: transparent;
+	position: absolute;
+    left: -100000px;
+}

@@ -13,22 +13,26 @@ document.addEventListener("turbolinks:load", function() {
 	// });
 
 	function copyTextToClipboard(text) {
-	  let textArea = document.createElement("textarea");
+	  // let textArea = document.createElement("textarea");
 
-	  textArea.style.top = 0;
-	  textArea.style.left = 0;
-	  textArea.style.width = '2em';
-	  textArea.style.height = '2em';
-	  textArea.style.padding = 0;
-	  textArea.style.border = 'none';
-	  textArea.style.outline = 'none';
-	  textArea.style.boxShadow = 'none';
-	  textArea.style.background = 'transparent';
-	  textArea.value = text;
-	  document.body.appendChild(textArea);
-	  textArea.select();
-	  document.execCommand('copy');
-	  document.body.removeChild(textArea);
+	  // textArea.id = 'bar';
+	  // textArea.style.top = 0;
+	  // textArea.style.left = 0;
+	  // textArea.style.width = '2em';
+	  // textArea.style.height = '2em';
+	  // textArea.style.padding = 0;
+	  // textArea.style.border = 'none';
+	  // textArea.style.outline = 'none';
+	  // textArea.style.boxShadow = 'none';
+	  // textArea.style.background = 'transparent';
+	  // textArea.value = text;
+	  // document.body.appendChild(textArea);
+
+	  let textarea = $('#bar');
+	  textarea.val(text);
+
+	  var clipboard = new Clipboard('.copy-url');
+	  // document.body.removeChild(textArea);
 	}
 
 	$( document ).ready(function() {

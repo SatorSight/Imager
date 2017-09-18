@@ -37,6 +37,7 @@ gem 'paperclip'
 gem 'dropzonejs-rails'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'clipboard-rails'
 
 
 group :development, :test do

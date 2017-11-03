@@ -22,8 +22,11 @@ class ImagesController < ApplicationController
 
   def short
   	@image = Image.find params[:id]
-  	image = Rails.root.to_s+'/public'+@image.image_file.url(:original, timestamp: false)
-  	send_file image, disposition: 'inline'
+  	#image = Rails.root.to_s+'/public'+@image.image_file.url(:original, timestamp: false)
+    @images_before = Image.where("id < ?", @image.id)
+    @images_after = Image.where("id > ?", @image.id)
+    
+  	#send_file image, disposition: 'inline'
   end
 
 private

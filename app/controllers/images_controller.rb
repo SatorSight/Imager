@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
   def short
   	@image = Image.find params[:id]
   	image = Rails.root.to_s+'/public'+@image.image_file.url(:original, timestamp: false)
-  	send_file image, type: 'image/jpg', disposition: 'inline'
+  	send_file image, disposition: 'inline'
   end
 
 private

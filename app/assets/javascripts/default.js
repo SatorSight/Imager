@@ -12,10 +12,19 @@ document.addEventListener("turbolinks:load", function() {
     });
 
 	function copyTextToClipboard(text) {
-	  let textarea = $('#bar');
-	  textarea.val(text);
+		console.log(text);
+
+	  let textarea = document.getElementById( 'bar' )
+	  //let textarea = $('#bar');
+
+	  textarea.value = text;
+	  // textarea.val(text);
 
 	  var clipboard = new Clipboard('.copy-url');
+
+      //textarea.blur();
+
+
 	}
 
 	$( document ).ready(function() {

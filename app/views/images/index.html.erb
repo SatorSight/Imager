@@ -57,7 +57,10 @@
                         <td style="word-break:break-all;"><%= image.image_file_file_name %></td>
                         <td class="actions-td">
                             <div class="btn-group btn-group-vertical">
-                              <button type="button" data-clipboard-action="copy" data-clipboard-target="#bar" class="btn btn-primary action-button copy-url">URL</button>
+                                <button type="button" 
+                              data-clipboard-action="copy" 
+                              data-clipboard-text="http://img.tap0.ru/<%= image.id %>"
+                              class="btn btn-primary action-button copy-url">URL</button>                              
                               <button type="button" class="btn btn-danger action-button delete-image">Delete</button>
                             </div>
                         </td>

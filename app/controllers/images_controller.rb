@@ -29,6 +29,12 @@ class ImagesController < ApplicationController
   	#send_file image, disposition: 'inline'
   end
 
+  def raw
+    @image = Image.find params[:id]
+    image = Rails.root.to_s+'/public'+@image.image_file.url(:original, timestamp: false)
+    send_file image, disposition: 'inline'
+  end
+
 private
 
   def upload_params

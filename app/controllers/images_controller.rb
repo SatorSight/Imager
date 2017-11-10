@@ -72,7 +72,7 @@ private
   end	
 
   def add_tags_for(image)
-    name = image.image_file_file_name
+    name = image.image_file_file_name.dup
     name.slice! '.jpg'
     name.slice! '.png'
     name.slice! '.jpeg'

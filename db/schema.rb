@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914153617) do
+ActiveRecord::Schema.define(version: 20171109114349) do
 
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,5 +20,19 @@ ActiveRecord::Schema.define(version: 20170914153617) do
     t.integer "image_file_file_size"
     t.datetime "image_file_updated_at"
   end
+
+  create_table "images_tags", id: false, force: :cascade do |t|
+    t.integer "image_id", null: false
+    t.integer "tag_id", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+# Could not dump table "testtable" because of following StandardError
+#   Unknown type 'STRING' for column 'same_value'
 
 end

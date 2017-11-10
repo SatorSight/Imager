@@ -28,6 +28,43 @@ document.addEventListener("turbolinks:load", function() {
 	}
 
 	$( document ).ready(function() {
+
+		$('.dropdown-toggle-wrapper').on('click', function(){
+			let glyph_down = $('#filters-show');
+			let glyph_up = $('#filters-hide');
+
+			if(glyph_up.hasClass('menu-on'))
+				glyph_up.removeClass('menu-on');
+			else
+				glyph_up.addClass('menu-on');
+
+			if(glyph_down.hasClass('menu-on'))
+				glyph_down.removeClass('menu-on');
+			else
+				glyph_down.addClass('menu-on');
+
+			if(glyph_down.hasClass('menu-on'))
+				$('.filter-wrapper').hide();
+			else
+				$('.filter-wrapper').show();
+		});
+
+		$('.filter-tag').parent().hide();
+		let input = $('#filter-text-input');
+		input.on('keyup', function(){
+			const value = $(this).val();
+			if(value.length !== 0){
+				$.each($('.filter-tag'), function(i, val){
+					if(val.innerHTML.indexOf(value) !== -1)
+						$(val).parent().show();
+					else
+						$(val).parent().hide();
+				});
+			}else
+				$('.filter-tag').parent().hide();
+		});
+
+
 	    let delete_button = $('.delete-image');
 	    let copy_button = $('.copy-url');
 	    delete_button.on('click', function(){

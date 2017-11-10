@@ -95,3 +95,96 @@ body .swiper-slide img {
     left: 50%;
     top: 0;
 }
+
+.red{
+    color: crimson;
+}
+
+.center{
+    text-align: center;
+    width: 100%;
+}
+
+a.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.table-condensed tr,.table-condensed tr td {position: relative; overflow-wrap: break-word;}
+.btn-group button.copy-url{
+     margin-bottom: 5px;
+}
+
+.tag-link{
+    z-index: 10;
+    position: relative;
+    padding: 5px;
+    margin: 10px;
+    display: inline-block;
+
+    border: 1px solid #ff721a;
+    border-radius: 4px;
+}
+
+
+.filter-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 10px;    
+    display: none;
+}
+
+.filter-dates-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-tags-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.filter-tag{
+    margin: 10px;
+    border: 1px solid #ff721a;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.filter-tag a{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+
+.filter-search{
+    margin-bottom: 10px;
+}
+
+.filter-submit{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.dropdown-toggle-wrapper{
+    padding-top: 22px;
+}
+
+.dropdown-toggle-wrapper button{
+    background: #ff721a;
+}
+
+button.filters-hide, button.filters-show{
+    display: none;
+}
+
+.filters-hide.menu-on, .filters-show.menu-on{
+    display: inline-block;
+}

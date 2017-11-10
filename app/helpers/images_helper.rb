@@ -11,4 +11,8 @@ module ImagesHelper
 		width.slice! '.0'
 		width
 	end
+
+	def all_tags
+		Tag.all
+	end
 end

@@ -1,14 +1,86 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Imager</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>Imager</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
   </head>
 
   <body>
-    <%= yield %>
+  	<div class="container" id="admin-container">
+	    <div class="jumbotron" style="padding-top: 0; padding-bottom: 8px; background:#333;  font-family: monospace;">
+	        <div class="media">
+	            <div class="media-body">
+	            	<a href="/">
+	                	<h2 id="admin-terminal"> < ⚝ > Imager</h2>
+	                </a>
+	            </div>
+	            <div class="dropdown-toggle-wrapper media-right">
+	            	<button id="filters-show" class="btn menu-on filters-show"><span class="glyphicon glyphicon-menu-down"></span></button>
+	            	<button id="filters-hide" class="btn filters-hide"><span class="glyphicon glyphicon-menu-up"></span></button>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="row">
+		    <div class="col-xs-12 admin-wrapper">
+		        <div id="content">
+		            <%= form_for @image, html: { multipart: true, class: "dropzone", id: "my-dropzone" } do |f|%>
+		                <div class="dz-message needsclick">
+		                    <h3>Drop file here</h3> or
+		                    <strong>click</strong> to upload
+		                </div>
+		                <div class="fallback">
+		                    <%= f.file_field :image_file %>
+		                    <%= f.submit "Upload here" %>
+		                </div>
+		            <% end %>
+		        </div>
+		        <div class="filter-wrapper">
+					<%= form_tag("/filter", method: "post") do %>
+			        	<div class="filter-search">
+			        		<input class="form-control" id="filter-text-input" type="text" name="filter-text">
+			        		<span class="filter-search-clear"></span>
+			        	</div>
+			        	<div class="filter-dates-wrapper">
+			        		<div class="filter-date-from">
+			        			<label for="filter-date-from-input">From</label>
+			        			<input id="filter-date-from-input" class="form-control" type="date" name="from">
+			        		</div>
+			        		<div></div>
+			        		<div class="filter-date-from">
+			        			<label for="filter-date-to-input">To</label>
+			        			<input id="filter-date-to-input" class="form-control" type="date" name="to">
+			        		</div>
+			        	</div>
+			        	<div class="filter-tags-wrapper">
+			        		<% all_tags.each do |tag| %>
+					        	<a href="/tag/<%= tag.title %>">
+					        		<div class="filter-tag"><%= tag.title %></div>
+				        		</a>
+			        		<% end %>
+			        	</div>
+			        	<div class="filter-submit">
+			        		<button class="btn btn-primary" type="submit" >Filter</button>
+			        	</div>
+		        	<% end %>
+		        </div>
+	    		<%= yield %>
+	    	</div>
+		</div>
+	    <textarea id="bar">test</textarea>
+	</div>
+	<br>
+	<br>
   </body>
 </html>

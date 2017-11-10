@@ -118,6 +118,10 @@ a.mask{
      margin-bottom: 5px;
 }
 
+.btn-group button.copy-url-youtrack{
+     margin-bottom: 0px;
+}
+
 .tag-link{
     z-index: 10;
     position: relative;

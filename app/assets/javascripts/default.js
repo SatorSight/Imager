@@ -67,6 +67,7 @@ document.addEventListener("turbolinks:load", function() {
 
 	    let delete_button = $('.delete-image');
 	    let copy_button = $('.copy-url');
+	    let copy_youtrack = $('.copy-youtrack');
 	    delete_button.on('click', function(){
 
 	    	let tr = $(this).parent().parent().parent();
@@ -86,6 +87,14 @@ document.addEventListener("turbolinks:load", function() {
 	    });
 
 	    copy_button.on('click', function(){
+	    	let tr = $(this).parent().parent().parent();
+	    	let id = parseInt(tr.find('.image-id').attr('data'));
+	    	
+	    	let url = window.location.host+'/'+id;
+
+	    	copyTextToClipboard(url);
+		});
+		copy_youtrack.on('click', function(){
 	    	let tr = $(this).parent().parent().parent();
 	    	let id = parseInt(tr.find('.image-id').attr('data'));
 	    	

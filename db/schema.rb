@@ -32,7 +32,4 @@ ActiveRecord::Schema.define(version: 20171109114349) do
     t.datetime "updated_at", null: false
   end
 
-# Could not dump table "testtable" because of following StandardError
-#   Unknown type 'STRING' for column 'same_value'
-
 end

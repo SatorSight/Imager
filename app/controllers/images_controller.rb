@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
-  http_basic_authenticate_with name: "n", password: "ice"
-
+  
   def index
   	@image = Image.new
   	@all_images = Image.order(id: :desc).page params[:page]

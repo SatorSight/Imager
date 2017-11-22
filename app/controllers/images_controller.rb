@@ -39,21 +39,33 @@ class ImagesController < ApplicationController
   def tag
     @image = Image.new
     tag = Tag.find_by title: params[:tag]
-    @all_images = tag.images.page params[:page]
+    @all_images = tag.images.order(id: :desc).page params[:page]
+    render :index
   end
 
   def filter
+
+    from = nil
+    to = nil
+    unless params[:daterange].blank?
+      from = params[:daterange][0, params[:daterange].index(' ')]
+      to = params[:daterange]
+      to.slice! from
+      to.slice! '-'
+      to.strip!
+    end
+
     @image = Image.new
 
-    if params[:from].present? or params[:to].present?
-      if params[:from].present? and params[:to].empty?
-        @all_images = Image.where('created_at > ?', params[:from]).order(id: :desc).page params[:page]
+    if from.present? or to.present?
+      if from.present? and to.empty?
+        @all_images = Image.where('created_at > ?', from).order(id: :desc).page params[:page]
       end
-      if params[:from].empty? and params[:to].present?
-        @all_images = Image.where('created_at < ?', params[:to]).order(id: :desc).page params[:page]
+      if from.empty? and to.present?
+        @all_images = Image.where('created_at < ?', to).order(id: :desc).page params[:page]
       end
-      if params[:from].present? and params[:to].present?
-        @all_images = Image.where('created_at > ?', params[:from]).where('created_at < ?', params[:to]).order(id: :desc).page params[:page]
+      if from.present? and to.present?
+        @all_images = Image.where('created_at > ?', from).where('created_at < ?', to).order(id: :desc).page params[:page]
       end
 
     else

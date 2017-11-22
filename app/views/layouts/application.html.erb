@@ -15,6 +15,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
   </head>
 
   <body>
@@ -49,19 +54,14 @@
 		        <div class="filter-wrapper">
 					<%= form_tag("/filter", method: "post") do %>
 			        	<div class="filter-search">
-			        		<input class="form-control" id="filter-text-input" type="text" name="filter-text">
+			        		<input placeholder="Tag search..." class="form-control" id="filter-text-input" type="text" name="filter-text">
 			        		<span class="filter-search-clear"></span>
 			        	</div>
 			        	<div class="filter-dates-wrapper">
-			        		<div class="filter-date-from">
-			        			<label for="filter-date-from-input">From</label>
-			        			<input id="filter-date-from-input" class="form-control" type="date" name="from">
-			        		</div>
-			        		<div></div>
-			        		<div class="filter-date-from">
-			        			<label for="filter-date-to-input">To</label>
-			        			<input id="filter-date-to-input" class="form-control" type="date" name="to">
-			        		</div>
+				        	<div class="filter-date">
+				        		<label>Date select</label>
+				        		<input class="form-control" type="text" name="daterange"/>
+				        	</div>
 			        	</div>
 			        	<div class="filter-tags-wrapper">
 			        		<% all_tags.each do |tag| %>

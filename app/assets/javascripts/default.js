@@ -14,13 +14,13 @@ document.addEventListener("turbolinks:load", function() {
 	function copyTextToClipboard(text) {
 		console.log(text);
 
-	  let textarea = document.getElementById( 'bar' )
+	  let textarea = document.getElementById( 'bar' );
 	  //let textarea = $('#bar');
 
 	  textarea.value = text;
 	  // textarea.val(text);
 
-	  var clipboard = new Clipboard('.copy-url');
+	  let clipboard = new Clipboard('.copy-url');
 
       //textarea.blur();
 
@@ -63,6 +63,17 @@ document.addEventListener("turbolinks:load", function() {
 			}else
 				$('.filter-tag').parent().hide();
 		});
+        input.keypress(function(e) {
+            const value = $(this).val();
+            let goValue;
+            if(e.which === 13) {
+                if(value.length !== 0){
+                	console.log(value);
+                	goValue = window.location.host+'/tag/'+value;
+                    window.location.href= goValue;
+                }
+            }
+        });
 
 
 	    let delete_button = $('.delete-image');
@@ -111,7 +122,8 @@ document.addEventListener("turbolinks:load", function() {
 		    locale: {
 		      format: 'YYYY-MM-DD'
 		    },
-		}, 
+            autoApply: true,
+		},
 		// function(start, end, label) {
 		//     alert("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
 		// }
